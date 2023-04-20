@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.Comparator;
+import java.util.List;
+
 public class Cube {
     private int id, xCoordinate, yCoordinate;
     private boolean isFree;
@@ -41,4 +44,13 @@ public class Cube {
     public void setFree(boolean free) {
         isFree = free;
     }
+
+    public void sortCubeList(List<Cube> cubes) {
+        Comparator<Cube> compareByYCoordinate = Comparator.comparing(Cube::getyCoordinate);
+        Comparator<Cube> compareByXCoordinate = Comparator.comparing(Cube::getxCoordinate);
+        Comparator<Cube> compareByBothCoordinates = compareByYCoordinate.thenComparing(compareByXCoordinate);
+
+        cubes.sort(compareByBothCoordinates);
+    }
 }
+

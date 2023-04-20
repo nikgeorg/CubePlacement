@@ -34,6 +34,7 @@ public class Main {
             }
 
         printCubes(table, K);
+        System.out.println(table.isValidCondition());
     }
 
     public static void printCubes(Table table, int K) {

@@ -52,7 +52,7 @@ public class Table {
 
     public boolean isValidCondition() {
         for (Cube c: cubes) {
-            if (!(isCubeOnTable(c) || isCubeOnAnotherCube(c.getxCoordinate(), c.getyCoordinate()))) return false;
+            if (!(isCubeOnTable(c) || isCubeOnAnotherCube(c.getxCoordinate() -1, c.getyCoordinate() -1))) return false;
             // if cube is on 1st row, its x must be between 1 and L, where L = number of table columns
             else if ((c.getyCoordinate() == 1 && c.getxCoordinate() < 1) || c.getyCoordinate() == 1 && c.getxCoordinate() > getNumColumns()) {
                 return false;
@@ -64,6 +64,16 @@ public class Table {
             }
         }
         return true;
+    }
+
+    public void initializeCubeArr() {
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numColumns; col++) {
+                for (Cube c: cubes) {
+                    tableArr[row][col] = c;
+                }
+            }
+        }
     }
 
 }

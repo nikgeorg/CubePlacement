@@ -45,12 +45,5 @@ public class Cube {
         isFree = free;
     }
 
-    public void sortCubeList(List<Cube> cubes) {
-        Comparator<Cube> compareByYCoordinate = Comparator.comparing(Cube::getyCoordinate);
-        Comparator<Cube> compareByXCoordinate = Comparator.comparing(Cube::getxCoordinate);
-        Comparator<Cube> compareByBothCoordinates = compareByYCoordinate.thenComparing(compareByXCoordinate);
-
-        cubes.sort(compareByBothCoordinates);
-    }
 }
 

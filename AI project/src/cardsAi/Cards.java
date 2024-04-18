@@ -1,7 +1,5 @@
-/**
- * 
- */
-package cardsAi;
+
+
 import java.util.Scanner;
 
 

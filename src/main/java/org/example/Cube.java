@@ -1,21 +1,25 @@
-package org.example;
+ 
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Cube {
+
     private int id, xCoordinate, yCoordinate;
-    private boolean isFree;
+
 
     public Cube(int id, int xCoordinate, int yCoordinate) {
         this.id = id;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
-
-    public boolean isFree() {
-        return isFree;
+    //copy constructor
+    public Cube(Cube other) {
+        this.id = other.id;
+        this.xCoordinate = other.xCoordinate;
+        this.yCoordinate = other.yCoordinate;
     }
+
 
     public int getId() {
         return id;
@@ -25,24 +29,32 @@ public class Cube {
         this.id = id;
     }
 
-    public int getxCoordinate() {
+    public int getXCoordinate() {
         return xCoordinate;
     }
 
-    public void setxCoordinate(int xCoordinate) {
-        this.xCoordinate = xCoordinate;
-    }
-
-    public int getyCoordinate() {
+    public int getYCoordinate() {
         return yCoordinate;
     }
 
-    public void setyCoordinate(int yCoordinate) {
-        this.yCoordinate = yCoordinate;
+    public ArrayList<Integer> getCoordinates(){
+        ArrayList<Integer> coordinates = new ArrayList<>(2);
+        coordinates.add(getXCoordinate());
+        coordinates.add(getYCoordinate());
+        return coordinates;
     }
 
-    public void setFree(boolean free) {
-        isFree = free;
+    public void setCoordinates(int x,int y){
+        this.xCoordinate = x;
+        this.yCoordinate = y;
+    }
+
+
+    public boolean equals(Object obj){
+        if(obj ==null) return false;
+        if(!(obj instanceof Cube)) return false;
+        Cube other = (Cube) obj;
+        return this.yCoordinate == other.yCoordinate && this.xCoordinate == other.xCoordinate && this.id == other.getId();
     }
 
 }
